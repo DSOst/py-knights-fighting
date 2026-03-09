@@ -24,19 +24,16 @@ def create_knight(config: Dict[str, Any]) -> Knight:
         potion=potion,
     )
 
-
 def battle(knights_config: dict) -> dict:
-    lancelot = create_knight(knights_config["lancelot"])
-    mordred = create_knight(knights_config["mordred"])
-    arthur = create_knight(knights_config["arthur"])
-    red_knight = create_knight(knights_config["red_knight"])
+    knights = {
+        name: create_knight(config)
+        for name, config in knights_config.items()
+    }
 
-    fight(lancelot, mordred)
-    fight(arthur, red_knight)
+    fight(knights["lancelot"], knights["mordred"])
+    fight(knights["arthur"], knights["red_knight"])
 
     return {
-        lancelot.name: lancelot.hp,
-        arthur.name: arthur.hp,
-        mordred.name: mordred.hp,
-        red_knight.name: red_knight.hp,
+        knight.name: knight.hp
+        for knight in knights.values()
     }
