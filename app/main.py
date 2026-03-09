@@ -24,6 +24,7 @@ def create_knight(config: Dict[str, Any]) -> Knight:
         potion=potion,
     )
 
+
 def battle(knights_config: dict) -> dict:
     knights = {
         name: create_knight(config)
