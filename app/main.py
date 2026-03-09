@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from app.knights.knight import Knight
 from app.knights.armour import Armour
 from app.knights.weapon import Weapon
@@ -5,7 +6,7 @@ from app.knights.potion import Potion
 from app.battle.fight import fight
 
 
-def create_knight(config):
+def create_knight(config: Dict[str, Any]) -> Knight:
     armour = [Armour(a["protection"]) for a in config.get("armour", [])]
     weapon = Weapon(config["weapon"]["power"])
     potion = (
@@ -20,7 +21,7 @@ def create_knight(config):
         power=config["power"],
         armour=armour,
         weapon=weapon,
-        potion = potion,
+        potion=potion,
     )
 
 

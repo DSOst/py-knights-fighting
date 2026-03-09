@@ -1,4 +1,6 @@
-KNIGHTS = {
+from typing import Any, Dict
+
+KNIGHTS: Dict[str, Dict[str, Any]] = {
     "lancelot": {
         "name": "Lancelot",
         "hp": 90,
